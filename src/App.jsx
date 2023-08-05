@@ -1,10 +1,10 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import TasksList from "./components/tasksList";
 function App() {
     return (
         <>
-            <h1>soy la web</h1>
+            <TasksList />
         </>
     );
 }
