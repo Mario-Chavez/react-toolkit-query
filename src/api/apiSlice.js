@@ -12,6 +12,7 @@ export const apiSlice = createApi({
             //    metodo para transformar la respuesta
             transformResponse: (response) => response.sort((a, b) => b.id - a.id),
         }),
+        // create task
         createTask: builder.mutation({
             query: (newTask) => ({
                 url: "/tasks",
@@ -19,6 +20,23 @@ export const apiSlice = createApi({
                 body: newTask,
             }),
             invalidatesTags: ["tasks"],
+        }),
+        // update tareas
+        updateTask: builder.mutation({
+            query: (newTask) => ({
+                url: `/tasks/${newTask.id}`,
+                method: "PATCH",
+                body: newTask,
+            }),
+            invalidatesTags: ["tasks"],
+        }),
+        // delet task
+        deleteTask: builder.mutation({
+            query: (id) => ({
+                url: `/tasks/${id}`,
+                method: "DELETE",
+            }),
+            invalidatesTags: ["tasks"], //llama al primer edpoint para actualizar
         }),
     }),
 });

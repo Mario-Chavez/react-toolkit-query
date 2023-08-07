@@ -13,8 +13,20 @@ const TasksList = () => {
                     <li key={task.id}>
                         <h3>{task.name}</h3>
                         <h5>{task.description}</h5>
-                        <button className="btn btn-primary mx-2">delet</button>
-                        <input type="checkbox" id={task.id} />
+                        <button
+                            onClick={() => console.log("delet", task.id)}
+                            className="btn btn-primary mx-2"
+                        >
+                            delet
+                        </button>
+                        <input
+                            type="checkbox"
+                            id={task.id}
+                            checked={task.completed} //check si esta la tarea realizada o no
+                            onChange={(e) => {
+                                console.log(e.target.checked);
+                            }}
+                        />
                         <label htmlFor={task.id}> completed</label>
                     </li>
                 ))}
