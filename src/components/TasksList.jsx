@@ -2,7 +2,7 @@ import React from "react";
 import { useGetTasksQuery } from "../api/apiSlice";
 const TasksList = () => {
     const { data: tasks, isError, isLoading } = useGetTasksQuery();
-
+    // console.log(tasks);
     if (isLoading) return <div>loading...</div>;
     else if (isError) return <div>Hay error</div>;
 
