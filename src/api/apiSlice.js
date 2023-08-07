@@ -12,7 +12,7 @@ export const apiSlice = createApi({
             //    metodo para transformar la respuesta
             transformResponse: (response) => response.sort((a, b) => b.id - a.id),
         }),
-        // create task
+        // slice create task
         createTask: builder.mutation({
             query: (newTask) => ({
                 url: "/tasks",
@@ -21,7 +21,7 @@ export const apiSlice = createApi({
             }),
             invalidatesTags: ["tasks"],
         }),
-        // update tareas
+        // slice update tareas
         updateTask: builder.mutation({
             query: (newTask) => ({
                 url: `/tasks/${newTask.id}`,
@@ -30,7 +30,7 @@ export const apiSlice = createApi({
             }),
             invalidatesTags: ["tasks"],
         }),
-        // delet task
+        // slice delet task
         deleteTask: builder.mutation({
             query: (id) => ({
                 url: `/tasks/${id}`,
@@ -43,4 +43,9 @@ export const apiSlice = createApi({
 
 // exportamos los metodos de getTasks renombrado automaticamente como useGet...
 // para wsr usado desde el componente
-export const { useGetTasksQuery, useCreateTaskMutation } = apiSlice;
+export const {
+    useGetTasksQuery,
+    useCreateTaskMutation,
+    useDeleteTaskMutation,
+    useUpdateTaskMutation,
+} = apiSlice;

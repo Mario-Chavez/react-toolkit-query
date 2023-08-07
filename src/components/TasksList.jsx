@@ -1,7 +1,13 @@
 import React from "react";
-import { useGetTasksQuery } from "../api/apiSlice";
+import {
+    useGetTasksQuery,
+    useDeleteTaskMutation,
+    useUpdateTaskMutation,
+} from "../api/apiSlice";
 const TasksList = () => {
     const { data: tasks, isError, isLoading } = useGetTasksQuery();
+    const [upDate] = useUpdateTaskMutation();
+    const [deleteDate] = useDeleteTaskMutation();
     // console.log(tasks);
     if (isLoading) return <div>loading...</div>;
     else if (isError) return <div>Hay error</div>;
@@ -14,7 +20,7 @@ const TasksList = () => {
                         <h3>{task.name}</h3>
                         <h5>{task.description}</h5>
                         <button
-                            onClick={() => console.log("delet", task.id)}
+                            onClick={() => deleteDate(task.id)}
                             className="btn btn-primary mx-2"
                         >
                             delet
@@ -22,9 +28,13 @@ const TasksList = () => {
                         <input
                             type="checkbox"
                             id={task.id}
-                            checked={task.completed} //check si esta la tarea realizada o no
+                            checked={task.completed} //check si esta la tarea realizada o no (parte visual)
                             onChange={(e) => {
-                                console.log(e.target.checked);
+                                // devolvemos un obj con las tareas , y le agregamos el valor de checked
+                                upDate({
+                                    ...task,
+                                    completed: e.target.checked,
+                                });
                             }}
                         />
                         <label htmlFor={task.id}> completed</label>

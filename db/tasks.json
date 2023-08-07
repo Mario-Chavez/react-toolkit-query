@@ -10,19 +10,15 @@
       "id": 2,
       "name": "Task 2",
       "description": "Task description 2",
-      "complete": true
+      "complete": true,
+      "completed": true
     },
     {
       "id": 3,
       "name": "Task 3",
       "description": "Task description 3",
-      "complete": false
-    },
-    {
-      "name": "Walter Herrera",
-      "description": "hacer una tarea de prueba",
-      "completed": true,
-      "id": 4
+      "complete": false,
+      "completed": true
     },
     {
       "name": "Mario Chavez",
