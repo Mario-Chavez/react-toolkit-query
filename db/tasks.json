@@ -25,6 +25,12 @@
       "description": "fffrh",
       "completed": true,
       "id": 5
+    },
+    {
+      "name": "Mario Guido",
+      "description": "hacer una tarea de prueba",
+      "completed": false,
+      "id": 6
     }
   ]
 }
